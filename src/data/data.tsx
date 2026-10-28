@@ -6,7 +6,7 @@ import {
 } from '@heroicons/react/24/outline';
 
 import LinkedInIcon from '../components/Icon/LinkedInIcon';
-import heroImage from '../images/header-background.webp';
+import heroImage from '../images/visax-RMukvw_Gc0k-unsplash.jpg';
 import porfolioImage1 from '../images/portfolio/portfolio-1.jpg';
 import porfolioImage2 from '../images/portfolio/portfolio-2.jpg';
 import profilepic from '../images/profilepic.jpg';

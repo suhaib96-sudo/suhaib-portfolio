@@ -12,6 +12,17 @@ const Hero: FC = memo(() => {
 
   return (
     <Section noPadding sectionId={SectionId.Hero}>
+      {/* Custom CSS for the smooth load-in animation */}
+      <style>{`
+        @keyframes slideUpFade {
+          0% { opacity: 0; transform: translateY(30px); }
+          100% { opacity: 1; transform: translateY(0); }
+        }
+        .animate-slide-up-fade {
+          animation: slideUpFade 1s ease-out forwards;
+        }
+      `}</style>
+
       <div className="relative flex h-screen w-full items-center justify-center">
         <Image
           alt={`${name}-image`}
@@ -20,8 +31,9 @@ const Hero: FC = memo(() => {
           priority
           src={imageSrc}
         />
-        <div className="z-10  max-w-screen-lg px-4 lg:px-0">
-          <div className="flex flex-col items-center gap-y-6 rounded-xl bg-gray-800/40 p-6 text-center shadow-lg backdrop-blur-sm">
+        <div className="z-10 max-w-screen-lg px-4 lg:px-0">
+          {/* Applied the slide-up fade animation here */}
+          <div className="animate-slide-up-fade flex flex-col items-center gap-y-6 rounded-xl bg-gray-800/40 p-6 text-center shadow-lg backdrop-blur-sm">
             <h1 className="text-4xl font-bold text-white sm:text-5xl lg:text-7xl">{name}</h1>
             {description}
             <div className="flex gap-x-4 text-neutral-100">
@@ -31,7 +43,7 @@ const Hero: FC = memo(() => {
               {actions.map(({href, text, primary, Icon}) => (
                 <a
                   className={classNames(
-                    'flex gap-x-2 rounded-full border-2 bg-none px-4 py-2 text-sm font-medium text-white ring-offset-gray-700/80 hover:bg-gray-700/80 focus:outline-none focus:ring-2 focus:ring-offset-2 sm:text-base',
+                    'flex gap-x-2 rounded-full border-2 bg-none px-4 py-2 text-sm font-medium text-white ring-offset-gray-700/80 focus:outline-none focus:ring-2 focus:ring-offset-2 sm:text-base transition-transform duration-300 hover:scale-105 hover:bg-gray-700/80',
                     primary ? 'border-orange-500 ring-orange-500' : 'border-white ring-white',
                   )}
                   href={href}
@@ -44,8 +56,9 @@ const Hero: FC = memo(() => {
           </div>
         </div>
         <div className="absolute inset-x-0 bottom-6 flex justify-center">
+          {/* Applied Tailwind's animate-bounce here */}
           <a
-            className="rounded-full bg-white p-1 ring-white ring-offset-2 ring-offset-gray-700/80 focus:outline-none focus:ring-2 sm:p-2"
+            className="animate-bounce rounded-full bg-white p-1 ring-white ring-offset-2 ring-offset-gray-700/80 focus:outline-none focus:ring-2 sm:p-2"
             href={`/#${SectionId.About}`}>
             <ChevronDownIcon className="h-5 w-5 bg-transparent sm:h-6 sm:w-6" />
           </a>
