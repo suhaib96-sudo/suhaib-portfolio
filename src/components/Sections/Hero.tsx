@@ -27,7 +27,6 @@ const Hero: FC = memo(() => {
       <div className="relative flex h-screen w-full items-center justify-center overflow-hidden">
         <Image
           alt={`${name}-image`}
-          {/* Added blur-sm, brightness-50 (to darken), and scale-105 (to hide blurred edges) */}
           className="absolute z-0 h-full w-full object-cover blur-sm brightness-50 scale-105"
           placeholder="blur"
           priority
