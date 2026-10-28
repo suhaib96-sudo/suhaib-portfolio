@@ -12,54 +12,72 @@ const Hero: FC = memo(() => {
 
   return (
     <Section noPadding sectionId={SectionId.Hero}>
-      {/* Custom CSS for the smooth load-in animation */}
+      {/* Custom CSS for staggered, ultra-smooth animations */}
       <style>{`
         @keyframes slideUpFade {
-          0% { opacity: 0; transform: translateY(30px); }
+          0% { opacity: 0; transform: translateY(40px); }
           100% { opacity: 1; transform: translateY(0); }
         }
-        .animate-slide-up-fade {
-          animation: slideUpFade 1s ease-out forwards;
-        }
+        .animate-fade-1 { animation: slideUpFade 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        .animate-fade-2 { animation: slideUpFade 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards; opacity: 0; }
+        .animate-fade-3 { animation: slideUpFade 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards; opacity: 0; }
       `}</style>
 
-      {/* Added overflow-hidden here to prevent scrolling from the scaled image */}
-      <div className="relative flex h-screen w-full items-center justify-center overflow-hidden">
+      <div className="relative flex h-screen w-full items-center justify-center overflow-hidden bg-gray-900">
         <Image
           alt={`${name}-image`}
-          className="absolute z-0 h-full w-full object-cover blur-sm brightness-50 scale-105"
+          className="absolute z-0 h-full w-full object-cover blur-[3px] brightness-[0.25] scale-105"
           placeholder="blur"
           priority
           src={imageSrc}
         />
+        
         <div className="z-10 max-w-screen-lg px-4 lg:px-0">
-          <div className="animate-slide-up-fade flex flex-col items-center gap-y-6 rounded-xl bg-gray-800/40 p-6 text-center shadow-lg backdrop-blur-sm">
-            <h1 className="text-4xl font-bold text-white sm:text-5xl lg:text-7xl">{name}</h1>
-            {description}
-            <div className="flex gap-x-4 text-neutral-100">
+          {/* Upgraded Premium Glassmorphism Card */}
+          <div className="flex flex-col items-center gap-y-8 rounded-3xl border border-white/10 bg-white/5 p-8 text-center shadow-2xl backdrop-blur-md sm:p-12">
+            
+            {/* Gradient Text for Name */}
+            <h1 className="animate-fade-1 text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-7xl">
+              <span className="bg-gradient-to-r from-orange-400 to-amber-500 bg-clip-text text-transparent drop-shadow-sm">
+                {name}
+              </span>
+            </h1>
+            
+            {/* Description with improved readability */}
+            <div className="animate-fade-2 max-w-2xl text-base text-gray-300 sm:text-lg lg:text-xl font-light leading-relaxed">
+              {description}
+            </div>
+            
+            <div className="animate-fade-3 flex gap-x-6 text-white/80 transition-colors hover:text-white">
               <Socials />
             </div>
-            <div className="flex w-full justify-center gap-x-4">
+            
+            {/* Upgraded Modern Buttons */}
+            <div className="animate-fade-3 flex w-full flex-col justify-center gap-y-4 sm:flex-row sm:gap-x-6 sm:gap-y-0 mt-4">
               {actions.map(({href, text, primary, Icon}) => (
                 <a
                   className={classNames(
-                    'flex gap-x-2 rounded-full border-2 bg-none px-4 py-2 text-sm font-medium text-white ring-offset-gray-700/80 focus:outline-none focus:ring-2 focus:ring-offset-2 sm:text-base transition-transform duration-300 hover:scale-105 hover:bg-gray-700/80',
-                    primary ? 'border-orange-500 ring-orange-500' : 'border-white ring-white',
+                    'flex items-center justify-center gap-x-2 rounded-full px-8 py-3 text-sm font-semibold tracking-wide text-white transition-all duration-300 hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-900 sm:text-base',
+                    primary 
+                      ? 'bg-gradient-to-r from-orange-500 to-amber-500 shadow-lg shadow-orange-500/30 hover:shadow-orange-500/50 focus:ring-orange-500' 
+                      : 'border border-white/20 bg-white/5 hover:bg-white/10 focus:ring-white backdrop-blur-sm',
                   )}
                   href={href}
                   key={text}>
                   {text}
-                  {Icon && <Icon className="h-5 w-5 text-white sm:h-6 sm:w-6" />}
+                  {Icon && <Icon className="h-5 w-5 sm:h-6 sm:w-6" />}
                 </a>
               ))}
             </div>
           </div>
         </div>
-        <div className="absolute inset-x-0 bottom-6 flex justify-center">
+
+        {/* Upgraded Bouncing Chevron */}
+        <div className="absolute inset-x-0 bottom-8 flex justify-center z-10">
           <a
-            className="animate-bounce rounded-full bg-white p-1 ring-white ring-offset-2 ring-offset-gray-700/80 focus:outline-none focus:ring-2 sm:p-2"
+            className="animate-bounce rounded-full border border-white/20 bg-white/5 p-2 text-white/80 backdrop-blur-sm transition-all hover:bg-white/20 hover:text-white focus:outline-none focus:ring-2 focus:ring-orange-500"
             href={`/#${SectionId.About}`}>
-            <ChevronDownIcon className="h-5 w-5 bg-transparent sm:h-6 sm:w-6" />
+            <ChevronDownIcon className="h-6 w-6" />
           </a>
         </div>
       </div>
