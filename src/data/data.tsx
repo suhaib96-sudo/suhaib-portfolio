@@ -95,41 +95,44 @@ export const aboutData: About = {
 /**
  * Skills section
  */
+/**
+ * Skills section
+ */
 export const skills: SkillGroup[] = [
   {
     name: 'Programming Languages',
     skills: [
-      { name: 'Python', level: 9 },
-      { name: 'SQL', level: 9 },
-      { name: 'JavaScript / Node.js', level: 8 },
-      { name: 'PHP', level: 7 },
+      {name: 'Python', level: 9},
+      {name: 'SQL', level: 9},
+      {name: 'JavaScript / Node.js', level: 8},
+      {name: 'PHP', level: 7},
     ],
   },
   {
     name: 'Databases & Data',
     skills: [
-      { name: 'PostgreSQL', level: 9 },
-      { name: 'Data Modeling & Migration', level: 9 },
-      { name: 'Query Optimization', level: 8 },
-      { name: 'ETL', level: 8 },
+      {name: 'PostgreSQL', level: 9},
+      {name: 'Data Modeling & Migration', level: 9},
+      {name: 'Query Optimization', level: 8},
+      {name: 'ETL', level: 8},
     ],
   },
   {
     name: 'Platforms & Frameworks',
     skills: [
-      { name: 'Odoo ERP (V10 - V19)', level: 10 },
-      { name: 'CodeIgniter 4', level: 8 },
-      { name: 'WordPress / WooCommerce', level: 8 },
-      { name: 'Magento', level: 7 },
+      {name: 'Odoo ERP (V10 - V19)', level: 10},
+      {name: 'CodeIgniter 4', level: 8},
+      {name: 'WordPress / WooCommerce', level: 8},
+      {name: 'Magento', level: 7},
     ],
   },
   {
     name: 'Practices',
     skills: [
-      { name: 'System Integration', level: 9 },
-      { name: 'ERP Implementation', level: 9 },
-      { name: 'Project Management', level: 8 },
-      { name: 'ISO 27001:2022 Environment', level: 8 },
+      {name: 'System Integration', level: 9},
+      {name: 'ERP Implementation', level: 9},
+      {name: 'Project Management', level: 8},
+      {name: 'ISO 27001:2022 Environment', level: 8},
     ],
   },
 ];
