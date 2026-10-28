@@ -23,16 +23,17 @@ const Hero: FC = memo(() => {
         }
       `}</style>
 
-      <div className="relative flex h-screen w-full items-center justify-center">
+      {/* Added overflow-hidden here to prevent scrolling from the scaled image */}
+      <div className="relative flex h-screen w-full items-center justify-center overflow-hidden">
         <Image
           alt={`${name}-image`}
-          className="absolute z-0 h-full w-full object-cover"
+          {/* Added blur-sm, brightness-50 (to darken), and scale-105 (to hide blurred edges) */}
+          className="absolute z-0 h-full w-full object-cover blur-sm brightness-50 scale-105"
           placeholder="blur"
           priority
           src={imageSrc}
         />
         <div className="z-10 max-w-screen-lg px-4 lg:px-0">
-          {/* Applied the slide-up fade animation here */}
           <div className="animate-slide-up-fade flex flex-col items-center gap-y-6 rounded-xl bg-gray-800/40 p-6 text-center shadow-lg backdrop-blur-sm">
             <h1 className="text-4xl font-bold text-white sm:text-5xl lg:text-7xl">{name}</h1>
             {description}
@@ -56,7 +57,6 @@ const Hero: FC = memo(() => {
           </div>
         </div>
         <div className="absolute inset-x-0 bottom-6 flex justify-center">
-          {/* Applied Tailwind's animate-bounce here */}
           <a
             className="animate-bounce rounded-full bg-white p-1 ring-white ring-offset-2 ring-offset-gray-700/80 focus:outline-none focus:ring-2 sm:p-2"
             href={`/#${SectionId.About}`}>
