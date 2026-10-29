@@ -1,3 +1,4 @@
+/* eslint-disable simple-import-sort/imports */
 import classNames from 'classnames';
 import Image from 'next/image';
 import {FC, memo} from 'react';
@@ -7,30 +8,58 @@ import Section from '../Layout/Section';
 
 const About: FC = memo(() => {
   const {profileImageSrc, description, aboutItems} = aboutData;
+  
   return (
-    <Section className="bg-neutral-800" sectionId={SectionId.About}>
-      <div className={classNames('grid grid-cols-1 gap-y-4', {'md:grid-cols-4': !!profileImageSrc})}>
+    // Changed to pure white background to elegantly contrast your beige Hero section
+    <Section className="bg-white py-16 lg:py-24" sectionId={SectionId.About}>
+      <div className={classNames('mx-auto flex max-w-7xl flex-col items-center gap-12 lg:flex-row lg:items-start lg:gap-16')}>
+        
+        {/* Left Side: Profile Image with 3D hover effects */}
         {!!profileImageSrc && (
-          <div className="col-span-1 flex justify-center md:justify-start">
-            <div className="relative h-24 w-24 overflow-hidden rounded-xl md:h-32 md:w-32">
-              <Image alt="about-me-image" className="h-full w-full object-cover" src={profileImageSrc} />
+          <div className="w-full max-w-[280px] shrink-0 lg:w-1/3">
+            <div className="group relative aspect-square overflow-hidden rounded-2xl shadow-lg transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl hover:shadow-gray-200">
+              <Image 
+                alt="About me" 
+                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" 
+                src={profileImageSrc} 
+              />
+              <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-black/10"></div>
             </div>
           </div>
         )}
-        <div className={classNames('col-span-1 flex flex-col gap-y-6', {'md:col-span-3': !!profileImageSrc})}>
-          <div className="flex flex-col gap-y-2">
-            <h2 className="text-2xl font-bold text-white">About me</h2>
-            <p className="prose prose-sm text-gray-300 sm:prose-base">{description}</p>
+
+        {/* Right Side: Typography and Animated Grid Cards */}
+        <div className={classNames('flex w-full flex-col gap-y-8', {'lg:w-2/3': !!profileImageSrc})}>
+          
+          <div className="flex flex-col gap-y-4">
+            {/* Matching Serif Heading */}
+            <h2 className="font-serif text-4xl font-bold text-gray-900 sm:text-5xl">About Me.</h2>
+            <div className="h-1 w-20 rounded bg-gray-900"></div>
+            <p className="mt-4 text-lg leading-relaxed text-gray-600 sm:text-xl">
+              {description}
+            </p>
           </div>
-          <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+          
+          {/* Beautiful interactive grid for your details */}
+          <ul className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2">
             {aboutItems.map(({label, text, Icon}, idx) => (
-              <li className="col-span-1 flex  items-start gap-x-2" key={idx}>
-                {Icon && <Icon className="h-5 w-5 text-white" />}
-                <span className="text-sm font-bold text-white">{label}:</span>
-                <span className=" text-sm text-gray-300">{text}</span>
+              <li 
+                className="group flex items-center gap-x-4 rounded-xl border border-gray-100 bg-gray-50 p-4 transition-all duration-300 hover:-translate-y-1 hover:border-gray-300 hover:bg-white hover:shadow-md" 
+                key={idx}
+              >
+                {Icon && (
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-gray-900 text-white transition-transform duration-300 group-hover:scale-110 group-hover:bg-gray-700">
+                    <Icon className="h-6 w-6" />
+                  </div>
+                )}
+                <div className="flex flex-col">
+                  <span className="text-xs font-bold uppercase tracking-wider text-gray-400">{label}</span>
+                  <span className="text-base font-medium text-gray-900">{text}</span>
+                </div>
               </li>
             ))}
           </ul>
+          
         </div>
       </div>
     </Section>
