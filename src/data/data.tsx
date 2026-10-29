@@ -58,7 +58,7 @@ export const heroData: Hero = {
   description: (
     <>
       <p className="mb-4">
-        I am a Riyadh-based <strong>Software Engineer and Systems Analyst</strong> with seven years of experience architecting data-centric applications and leading end-to-end ERP integrations.
+        I am a Saudi-based <strong>Software Engineer and Systems Analyst</strong> with seven years of experience architecting data-centric applications and leading end-to-end ERP integrations.
       </p>
       <p>
         My technical foundation spans <strong>Python, SQL, and full-stack development</strong>. I am currently focusing my expertise on <strong>data modeling and AI development</strong>, recently launching a custom Node.js AI chatbot to optimize vendor discovery for a sustainable B2B marketplace.
