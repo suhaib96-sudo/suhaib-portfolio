@@ -1,3 +1,4 @@
+/* eslint-disable simple-import-sort/imports */
 import Image from 'next/image';
 import {FC, memo} from 'react';
 
