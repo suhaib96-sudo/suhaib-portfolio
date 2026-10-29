@@ -4,7 +4,7 @@ import {FC, memo} from 'react';
 
 import {heroData, SectionId} from '../../data/data';
 import Section from '../Layout/Section';
-import myImage from '../../images/IMG_0210.jpg'; // Make sure the extension matches your new 3D image!
+import myImage from '../../images/IMG_0210.png'; // Make sure the extension matches your new 3D image!
 
 const Hero: FC = memo(() => {
   const {description, actions} = heroData;
