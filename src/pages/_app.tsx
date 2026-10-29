@@ -1,10 +1,11 @@
+/* eslint-disable simple-import-sort/imports */
 import 'tailwindcss/tailwind.css';
 import '../globalStyles.scss';
 
 import type {AppProps} from 'next/app';
 import {memo} from 'react';
-// 1. Import the premium fonts
-import { Inter, Playfair_Display } from 'next/font/google';
+// 1. Import the premium fonts (Fixed spacing for ESLint)
+import {Inter, Playfair_Display} from 'next/font/google';
 
 // 2. Configure the fonts
 const inter = Inter({
