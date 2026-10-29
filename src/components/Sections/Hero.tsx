@@ -4,7 +4,7 @@ import {FC, memo} from 'react';
 
 import {heroData, SectionId} from '../../data/data';
 import Section from '../Layout/Section';
-import myImage from '../../images/IMG_0211.jpg';
+import myImage from '../../images/IMG_0211.png';
 
 const Hero: FC = memo(() => {
   const {description, actions} = heroData;
