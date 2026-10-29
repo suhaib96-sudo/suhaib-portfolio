@@ -1,3 +1,4 @@
+/* eslint-disable simple-import-sort/imports */
 import {FC, memo} from 'react';
 
 import {education, experience, SectionId, skills} from '../../../data/data';
@@ -8,26 +9,30 @@ import TimelineItem from './TimelineItem';
 
 const Resume: FC = memo(() => {
   return (
-    <Section className="bg-neutral-100" sectionId={SectionId.Resume}>
-      <div className="flex flex-col divide-y-2 divide-neutral-300">
+    // Continuing the elegant off-white theme
+    <Section className="bg-[#f1efea] py-16 lg:py-24" sectionId={SectionId.Resume}>
+      <div className="mx-auto flex max-w-7xl flex-col gap-y-20">
+        
         <ResumeSection title="Education">
           {education.map((item, index) => (
-            <TimelineItem item={item} key={`${item.title}-${index}`} />
+            <TimelineItem isLast={index === education.length - 1} item={item} key={`${item.title}-${index}`} />
           ))}
         </ResumeSection>
-        <ResumeSection title="Work">
+        
+        <ResumeSection title="Work Experience">
           {experience.map((item, index) => (
-            <TimelineItem item={item} key={`${item.title}-${index}`} />
+            <TimelineItem isLast={index === experience.length - 1} item={item} key={`${item.title}-${index}`} />
           ))}
         </ResumeSection>
-        <ResumeSection title="Skills">
-          <p className="pb-8">Here you can show a snapshot of your skills to show off to employers</p>
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+        
+        <ResumeSection title="Technical Skills">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
             {skills.map((skillgroup, index) => (
               <SkillGroup key={`${skillgroup.name}-${index}`} skillGroup={skillgroup} />
             ))}
           </div>
         </ResumeSection>
+        
       </div>
     </Section>
   );
