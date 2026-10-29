@@ -171,52 +171,67 @@ export const education: TimelineItem[] = [
 export const experience: TimelineItem[] = [
   {
     date: 'Jan 2025 - Present',
-    location: 'Marsoom Company | Riyadh, Saudi Arabia',
+    location: 'Marsoom Company, Riyadh',
     title: 'System Analyst and Developer',
     content: (
-      <p>
-        Designed a Saudi-compliant HR management system. Built proprietary debt collection software and a Quality Management System using CodeIgniter 4. Administered Odoo ERP across Finance, Purchasing, and Inventory, reducing report generation time by 65%.
-      </p>
+      <ul className="flex flex-col gap-y-2 list-inside list-disc text-sm text-left">
+        <li>Designed and developed a Saudi-compliant HR management system from scratch, covering payroll and EOS calculations.</li>
+        <li>Design and maintain proprietary debt collection software, translating business requirements into data models.</li>
+        <li>Built a quality management system on CodeIgniter 4 and SQL to support compliance tracking.</li>
+        <li>Administer and customize Odoo ERP across Finance, Purchasing, and Inventory.</li>
+        <li>Run system performance assessments, reducing report generation time by 65%.</li>
+      </ul>
     ),
   },
   {
     date: 'Mar 2023 - Dec 2024',
-    location: 'LUSTRO | Riyadh, Saudi Arabia',
+    location: 'LUSTRO, Riyadh',
     title: 'Software Engineer & Odoo Project Manager',
     content: (
-      <p>
-        Led the end-to-end Odoo ERP implementation, managing data migration from legacy systems. Translated business requirements into automated workflows and maintained the company's WooCommerce website.
-      </p>
+      <ul className="flex flex-col gap-y-2 list-inside list-disc text-sm text-left">
+        <li>Led the end-to-end Odoo ERP implementation as project manager and consultant.</li>
+        <li>Ran requirements sessions with stakeholders and mapped them to Odoo modules.</li>
+        <li>Planned and executed data migration from the legacy ERP to Odoo ensuring data integrity.</li>
+        <li>Managed project scope, timeline, and deliverables coordinating with 10+ team members.</li>
+        <li>Maintained the company WooCommerce website and delivered marketing campaigns.</li>
+      </ul>
     ),
   },
   {
     date: 'Jul 2022 - Feb 2023',
-    location: 'Rkiza Company | Riyadh, Saudi Arabia',
+    location: 'Rkiza Company, Riyadh',
     title: 'Odoo Developer',
     content: (
-      <p>
-        Developed major Odoo modules including POS, Inventory, and Accounting. Engineered seamless data integration between Odoo and Magento for e-commerce synchronization.
-      </p>
+      <ul className="flex flex-col gap-y-2 list-inside list-disc text-sm text-left">
+        <li>Developed and supported major Odoo modules including POS, Inventory, Accounts, and Sales.</li>
+        <li>Integrated Odoo with Magento to support e-commerce operations and data synchronization.</li>
+        <li>Authored complete documentation of the Odoo system for developers and end-users.</li>
+        <li>Worked directly with business users to gather requirements and translate them into technical solutions.</li>
+      </ul>
     ),
   },
   {
     date: 'Jan 2022 - Jun 2022',
-    location: 'Health Gates Co. | Riyadh, Saudi Arabia',
+    location: 'Health Gates Co., Riyadh',
     title: 'IT Officer',
     content: (
-      <p>
-        Built tailored healthcare management applications directly on the Odoo ERP platform and managed daily IT operations to minimize staff downtime.
-      </p>
+      <ul className="flex flex-col gap-y-2 list-inside list-disc text-sm text-left">
+        <li>Developed new apps and modules for a healthcare management system on the Odoo ERP.</li>
+        <li>Troubleshot and resolved system issues to minimize downtime for staff.</li>
+        <li>Handled system administration tasks supporting day-to-day IT operations.</li>
+      </ul>
     ),
   },
   {
     date: 'Sep 2019 - Nov 2021',
-    location: 'SHAR Company | Riyadh, Saudi Arabia',
+    location: 'SHAR Company, Riyadh',
     title: 'Computer Programmer',
     content: (
-      <p>
-        Maintained the Odoo ERP system, built custom accounting reports, and developed multiple websites using WordPress, WooCommerce, and HTML.
-      </p>
+      <ul className="flex flex-col gap-y-2 list-inside list-disc text-sm text-left">
+        <li>Maintained Odoo ERP system, module customization, and customized accounting reports.</li>
+        <li>Maintained the business process workflow platform Process Maker.</li>
+        <li>Managed multiple company websites including building a WooCommerce site from scratch.</li>
+      </ul>
     ),
   },
 ];
