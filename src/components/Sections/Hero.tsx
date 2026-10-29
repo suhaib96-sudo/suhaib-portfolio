@@ -22,7 +22,7 @@ const Hero: FC = memo(() => {
             
             {/* The giant serif headline matching your image */}
             <h1 className="mb-8 font-serif text-5xl font-medium leading-[1.05] text-gray-900 sm:text-6xl md:text-7xl lg:text-[5.5rem]">
-              Engineer crafting software with <span className="italic">precision</span> and scale.
+              Suhaib Ahmed Khateeb.
             </h1>
             
             <div className="mb-12 max-w-xl text-lg leading-relaxed text-gray-600">
