@@ -1,84 +1,61 @@
-import {ChevronDownIcon} from '@heroicons/react/24/outline';
 import classNames from 'classnames';
 import Image from 'next/image';
 import {FC, memo} from 'react';
 
 import {heroData, SectionId} from '../../data/data';
 import Section from '../Layout/Section';
-import Socials from '../Socials';
+import myImage from '../../images/IMG_0210.png';
 
 const Hero: FC = memo(() => {
-  const {imageSrc, name, description, actions} = heroData;
+  const {description, actions} = heroData;
 
   return (
     <Section noPadding sectionId={SectionId.Hero}>
-      {/* Custom CSS for staggered, ultra-smooth animations */}
-      <style>{`
-        @keyframes slideUpFade {
-          0% { opacity: 0; transform: translateY(40px); }
-          100% { opacity: 1; transform: translateY(0); }
-        }
-        .animate-fade-1 { animation: slideUpFade 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
-        .animate-fade-2 { animation: slideUpFade 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards; opacity: 0; }
-        .animate-fade-3 { animation: slideUpFade 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards; opacity: 0; }
-      `}</style>
-
-      <div className="relative flex h-screen w-full items-center justify-center overflow-hidden bg-gray-900">
-        <Image
-          alt={`${name}-image`}
-          className="absolute z-0 h-full w-full object-cover blur-[3px] brightness-[0.25] scale-105"
-          placeholder="blur"
-          priority
-          src={imageSrc}
-        />
-        
-        <div className="z-10 max-w-screen-lg px-4 lg:px-0">
-          {/* Upgraded Premium Glassmorphism Card */}
-          <div className="flex flex-col items-center gap-y-8 rounded-3xl border border-white/10 bg-white/5 p-8 text-center shadow-2xl backdrop-blur-md sm:p-12">
+      <div className="flex min-h-screen w-full items-center justify-center bg-white px-6 py-24 sm:px-12 lg:px-16">
+        <div className="mx-auto flex w-full max-w-7xl flex-col-reverse items-center justify-between gap-16 lg:flex-row lg:gap-12">
+          
+          {/* Left Column: Typography */}
+          <div className="flex w-full flex-col justify-center lg:w-1/2 lg:pr-8">
+            <span className="mb-6 text-xs font-bold tracking-[0.25em] text-gray-400 uppercase">
+              Software Engineer & Systems Analyst
+            </span>
             
-            {/* Gradient Text for Name */}
-            <h1 className="animate-fade-1 text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-7xl">
-              <span className="bg-gradient-to-r from-orange-400 to-amber-500 bg-clip-text text-transparent drop-shadow-sm">
-                {name}
-              </span>
+            {/* The giant serif headline matching your image */}
+            <h1 className="mb-8 font-serif text-5xl font-medium leading-[1.05] text-gray-900 sm:text-6xl md:text-7xl lg:text-[5.5rem]">
+              Engineer crafting software with <span className="italic">precision</span> and scale.
             </h1>
             
-            {/* Description with improved readability */}
-            <div className="animate-fade-2 max-w-2xl text-base text-gray-300 sm:text-lg lg:text-xl font-light leading-relaxed">
+            <div className="mb-12 max-w-xl text-lg leading-relaxed text-gray-600">
               {description}
             </div>
             
-            <div className="animate-fade-3 flex gap-x-6 text-white/80 transition-colors hover:text-white">
-              <Socials />
-            </div>
-            
-            {/* Upgraded Modern Buttons */}
-            <div className="animate-fade-3 flex w-full flex-col justify-center gap-y-4 sm:flex-row sm:gap-x-6 sm:gap-y-0 mt-4">
-              {actions.map(({href, text, primary, Icon}) => (
+            <div className="flex flex-wrap gap-8 text-sm font-semibold tracking-wide">
+              {actions.map(({href, text, Icon}) => (
                 <a
-                  className={classNames(
-                    'flex items-center justify-center gap-x-2 rounded-full px-8 py-3 text-sm font-semibold tracking-wide text-white transition-all duration-300 hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-900 sm:text-base',
-                    primary 
-                      ? 'bg-gradient-to-r from-orange-500 to-amber-500 shadow-lg shadow-orange-500/30 hover:shadow-orange-500/50 focus:ring-orange-500' 
-                      : 'border border-white/20 bg-white/5 hover:bg-white/10 focus:ring-white backdrop-blur-sm',
-                  )}
+                  className="group flex items-center gap-x-2 text-gray-900 transition-colors hover:text-gray-500"
                   href={href}
                   key={text}>
-                  {text}
-                  {Icon && <Icon className="h-5 w-5 sm:h-6 sm:w-6" />}
+                  <span className="border-b border-gray-900 pb-1 group-hover:border-gray-500">{text}</span>
+                  {Icon && <Icon className="h-4 w-4 transition-transform group-hover:translate-x-1" />}
                 </a>
               ))}
             </div>
           </div>
-        </div>
 
-        {/* Upgraded Bouncing Chevron */}
-        <div className="absolute inset-x-0 bottom-8 flex justify-center z-10">
-          <a
-            className="animate-bounce rounded-full border border-white/20 bg-white/5 p-2 text-white/80 backdrop-blur-sm transition-all hover:bg-white/20 hover:text-white focus:outline-none focus:ring-2 focus:ring-orange-500"
-            href={`/#${SectionId.About}`}>
-            <ChevronDownIcon className="h-6 w-6" />
-          </a>
+          {/* Right Column: Your Personal Image */}
+          <div className="flex w-full justify-center lg:w-1/2 lg:justify-end">
+            {/* aspect-[4/5] gives it that tall, elegant portrait look */}
+            <div className="relative aspect-[4/5] w-full max-w-[500px] overflow-hidden bg-gray-100 shadow-sm">
+              <Image
+                alt="Suhaib Ahmed Khateeb"
+                className="object-cover"
+                fill
+                priority
+                src={myImage}
+              />
+            </div>
+          </div>
+          
         </div>
       </div>
     </Section>

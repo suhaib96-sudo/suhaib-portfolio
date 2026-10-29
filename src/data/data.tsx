@@ -53,28 +53,28 @@ export type SectionId = (typeof SectionId)[keyof typeof SectionId];
  * Hero section
  */
 export const heroData: Hero = {
-  imageSrc: heroImage,
+  imageSrc: heroImage, 
   name: `I'm Suhaib Ahmed Khateeb.`,
   description: (
     <>
-      <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
-        I am a Riyadh-based <strong className="text-stone-100">Software Engineer and Systems Analyst</strong> with seven years of experience architecting data-centric applications and leading end-to-end ERP integrations.
+      <p className="mb-4">
+        I am a Riyadh-based <strong>Software Engineer and Systems Analyst</strong> with seven years of experience architecting data-centric applications and leading end-to-end ERP integrations.
       </p>
-      <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
-        My technical foundation spans <strong className="text-stone-100">Python, SQL, and full-stack development</strong>. I am currently focusing my expertise on <strong className="text-stone-100">data modeling and AI development</strong>, recently launching a custom Node.js AI chatbot to optimize vendor discovery for a sustainable B2B marketplace.
+      <p>
+        My technical foundation spans <strong>Python, SQL, and full-stack development</strong>. I am currently focusing my expertise on <strong>data modeling and AI development</strong>, recently launching a custom Node.js AI chatbot to optimize vendor discovery for a sustainable B2B marketplace.
       </p>
     </>
   ),
   actions: [
     {
       href: '/assets/Suhaib_Resume_2026.pdf',
-      text: 'Resume',
+      text: 'View Resume',
       primary: true,
       Icon: ArrowDownTrayIcon,
     },
     {
       href: `#${SectionId.Contact}`,
-      text: 'Contact',
+      text: 'Contact Me',
       primary: false,
     },
   ],
